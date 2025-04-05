@@ -35,7 +35,16 @@ public class FP1Result {
     public String getTime() {
         return time;
     }
+    // Metodo para convertir el tiempo en formato mm:ss.SSS a segundos (double)
+    public double getTiempoEnSegundos() {
+        String[] parts = time.split(":");
+        double minutes = Double.parseDouble(parts[0]);
+        double seconds = Double.parseDouble(parts[1].split("\\.")[0]);
+        double milliseconds = Double.parseDouble(parts[1].split("\\.")[1]);
 
+        // Convertimos todo a segundos
+        return minutes * 60 + seconds + milliseconds / 1000;
+    }
     public void setTime(String time) {
         this.time = time;
     }
